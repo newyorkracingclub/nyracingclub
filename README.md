@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# New York Racing Club
 
-## Getting Started
+Welcome to the New York Racing Club repository! This project showcases the vibrant world of sports supported by the New York Racing Club, including cycling, running, speed skating, and swimming.
 
-First, run the development server:
+## Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **TypeScript**: Utilized for type safety and enhanced developer experience.
+- **Next.js 14.1**: Empowering server-side rendering and efficient routing.
+- **Tailwind CSS**: A utility-first CSS framework for crafting beautiful user interfaces with ease.
+- **React**: The foundation for building dynamic and interactive user interfaces.
+- **Google Cloud Console Calendar API**: Seamlessly integrated to provide up-to-date event information for sports enthusiasts.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About New York Racing Club
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   The New York Racing Club (NYRC) is a 501(c)(3) nonprofit dedicated to promoting excellence and camaraderie in the realms of cycling, running, speed skating, and swimming. Our mission is multifaceted, aiming to enhance the experiences of our racers and contribute to the growth and positive development of these sports.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Our Mission
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+At New York Racing Club, our mission is to promote excellence and camaraderie in cycling, running, speed skating, and swimming. We strive to enhance the experiences of our athletes and contribute to the growth and positive development of these sports.

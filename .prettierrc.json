@@ -1,0 +1,16 @@
+{
+    "parser": "typescript",
+    "useTabs": false,
+    "trailingComma": "es5",
+    "semi": true,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.json",
+        "options": {
+          "parser": "json"
+        }
+      }
+    ]
+  }

@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
+import Donate from './Donate';
 
 const navItems = [
-  { text: 'MISSION', href: '#mission' },
-  { text: 'EVENTS', href: '#events' },
-  { text: 'CONTACT', href: '#contact' },
+  { type: 'link', text: 'MISSION', href: '#mission' },
+  { type: 'link', text: 'EVENTS', href: '#events' },
+  { type: 'link', text: 'CONTACT', href: '#contact' },
+  { type: 'component', text: 'DONATE', component: <Donate /> },
 ];
 
 function Header() {
@@ -17,13 +19,24 @@ function Header() {
             <Logo />
           </div>
           <div className="flex-1 flex justify-center md:justify-end items-center space-x-2 md:space-x-4 text-white font-semibold text-base md:text-2xl hover:cursor-pointer tracking-tighter">
-            {navItems.map((item) => (
-              <Link key={item.text} href={item.href}>
-                <span className="cursor-pointer hover:text-gray-300">
-                  {item.text}
-                </span>
-              </Link>
-            ))}
+            <div className="flex-1 flex justify-center md:justify-end items-center space-x-2 md:space-x-4 text-white font-semibold text-base md:text-2xl hover:cursor-pointer tracking-tighter">
+              {navItems.map((item) =>
+                item.type === 'link' ? (
+                  <Link key={item.text} href={item.href ?? ''}>
+                    <span className="cursor-pointer hover:text-gray-300">
+                      {item.text}
+                    </span>
+                  </Link>
+                ) : (
+                  <div
+                    key={item.text}
+                    className="cursor-pointer hover:text-gray-300 text-red-600"
+                  >
+                    {item.component}
+                  </div>
+                )
+              )}
+            </div>
           </div>
         </nav>
       </div>

@@ -34,7 +34,7 @@ const Event: React.FC<EventCardProps> = ({ event, isPrevious }) => {
       </div>
       {!isPrevious && (
         <Link href={event.link ?? ''} target="_blank" passHref>
-          <button className="text-xs md:text-base lg:text-base bg-red-600 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:opacity-75">
+          <button className="text-xs md:text-base lg:text-base bg-red-600 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:bg-blue">
             REGISTER
           </button>
         </Link>

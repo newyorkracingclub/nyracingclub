@@ -3,7 +3,7 @@ import axios from 'axios';
 import { CalendarEvent, GoogleCalendarEvent } from '@/lib/events';
 
 const cache: { data?: CalendarEvent[]; timestamp?: number } = {};
-const CACHE_DURATION = 1000 * 60 * 1000;
+const CACHE_DURATION = 1000 * 60 * 240;
 
 export async function GET(req: NextRequest) {
   const calendarId = process.env.NYRC_CALENDAR_KEY;
@@ -22,6 +22,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+    console.log('hit api');
     const response = await axios.get<{ items: GoogleCalendarEvent[] }>(
       `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&orderBy=startTime&singleEvents=true`
     );
@@ -48,10 +49,14 @@ export async function GET(req: NextRequest) {
     cache.timestamp = Date.now();
     return NextResponse.json(transformedEvents);
   } catch (error) {
-    console.error('Error fetching events:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch events' },
-      { status: 500 }
-    );
+    const status =
+      axios.isAxiosError(error) && error.response?.status
+        ? error.response.status
+        : 500;
+    const message =
+      axios.isAxiosError(error) && error.response?.data?.error?.message
+        ? error.response.data.error.message
+        : 'Failed to fetch events';
+    return NextResponse.json({ error: message }, { status });
   }
 }

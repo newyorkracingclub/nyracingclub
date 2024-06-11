@@ -29,7 +29,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId="G-QX2WGNWT0P"/>
+      <GoogleAnalytics gaId="G-QX2WGNWT0P" />
     </html>
   );
 }

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import RacingImage1 from '@logos/fixedgear.png';
 import RacingImage2 from '@logos/landingpage.png';
-import RacingImage3 from '@logos/run.png'
+import RacingImage3 from '@logos/run.png';
 import RacingImage4 from '@logos/skate.png';
 import ContactForm from '@/components/Contact';
 import Events from '@/components/Events';

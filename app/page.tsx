@@ -3,13 +3,15 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import RacingImage1 from '@logos/fixedgear.png';
 import RacingImage2 from '@logos/landingpage.png';
+import RacingImage3 from '@logos/run.png';
+import RacingImage4 from '@logos/skate.png';
 import ContactForm from '@/components/Contact';
 import Events from '@/components/Events';
 import Mission from '../components/Mission';
 import Banner from '@/components/Banner';
 
 export default function Home() {
-  const images = [RacingImage1, RacingImage2];
+  const images = [RacingImage1, RacingImage2, RacingImage3, RacingImage4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {

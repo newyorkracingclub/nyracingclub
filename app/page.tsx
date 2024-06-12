@@ -26,26 +26,23 @@ export default function Home() {
         priority
         src={images[currentImageIndex]}
         alt="Cycling Race"
-        layout="responsive"
         width={1920}
         height={1080}
+        sizes="100vw"
+        className="w-full h-auto object-cover"
       />
       <Banner text="RUN • RIDE • SKATE • SWIM" />
 
-      <div id="events" className="bg-blue">
-        <h2 className="text-2xl md:text-6xl font-semibold p-10 text-white text-center tracking-tighter">
-          UPCOMING <span className="font-light">EVENTS</span>
-        </h2>
+      <div id="events" className="bg-blue px-6 pb-10 lg:px-10 lg:pb-20">
         <Events />
       </div>
       <Banner text="UNLEASH YOUR POTENTIAL" />
       <div id="mission">
         <Mission />
       </div>
-
       <div className="flex justify-center items-center">
         <div className="max-w-4xl">
-          <div id="contact" className="px-2 py-4 md:p-10">
+          <div id="contact" className="px-6 py-4 md:p-10">
             <ContactForm />
           </div>
         </div>

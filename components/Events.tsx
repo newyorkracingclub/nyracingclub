@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import Event from './Event';
 import LoadingSpinner from './LoadingSpinner';
 import { CalendarEvent, splitEvents } from '@/lib/events';
@@ -14,8 +13,11 @@ function Events() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get<CalendarEvent[]>('/api/calendar');
-        const { upcomingEvents, previousEvents } = splitEvents(res.data);
+        const res = await fetch('/api/calendar', {
+          next: { revalidate: 86400 },
+        });
+        const events: CalendarEvent[] = await res.json();
+        const { upcomingEvents, previousEvents } = splitEvents(events);
         setUpcomingEvents(upcomingEvents);
         setPreviousEvents(previousEvents);
       } catch (error) {

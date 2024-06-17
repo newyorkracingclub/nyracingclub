@@ -1,62 +1,51 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import axios from 'axios';
 import { CalendarEvent, GoogleCalendarEvent } from '@/lib/events';
 
-const cache: { data?: CalendarEvent[]; timestamp?: number } = {};
-const CACHE_DURATION = 1000 * 60 * 240;
+function transformEvent(event: GoogleCalendarEvent): CalendarEvent {
+  const date = new Date(event.start.date);
+  const month = date
+    .toLocaleString('default', { month: 'short' })
+    .toUpperCase();
+  const day = date.getDate().toString();
 
-export async function GET(req: NextRequest) {
+  return {
+    id: event.id,
+    summary: event.summary,
+    month,
+    day,
+    date: event.start.date,
+    link: event.location,
+  };
+}
+
+function getStartOfYearDate(): string {
+  const date = new Date();
+  date.setMonth(0);
+  date.setDate(1);
+  date.setHours(0, 0, 0, 0);
+  return date.toISOString();
+}
+
+export async function GET() {
   const calendarId = process.env.NYRC_CALENDAR_KEY;
   const apiKey = process.env.GOOGLE_API_KEY;
 
-  if (!apiKey) {
-    return NextResponse.json({ error: 'API key is not set' }, { status: 500 });
+  if (!calendarId || !apiKey) {
+    throw new Error('API key or calendar ID is not set');
   }
 
-  if (
-    cache.data &&
-    cache.timestamp &&
-    Date.now() - cache.timestamp < CACHE_DURATION
-  ) {
-    return NextResponse.json(cache.data);
-  }
+  const results = await axios
+    .get<{ items: GoogleCalendarEvent[] }>(
+      `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&orderBy=startTime&singleEvents=true&timeMin=${getStartOfYearDate()}`
+    )
+    .then((response) => response.data.items.map(transformEvent))
+    .catch((error) => {
+      const status = error.response?.status || 500;
+      const message =
+        error.response?.data?.error?.message || 'Failed to fetch events';
+      throw { status, message };
+    });
 
-  try {
-    console.log('hit api');
-    const response = await axios.get<{ items: GoogleCalendarEvent[] }>(
-      `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&orderBy=startTime&singleEvents=true`
-    );
-
-    const transformedEvents: CalendarEvent[] = response.data.items.map(
-      (event) => {
-        const date = new Date(event.start.date);
-        const month = date
-          .toLocaleString('default', { month: 'short' })
-          .toUpperCase();
-        const day = date.getDate().toString();
-
-        return {
-          id: event.id,
-          summary: event.summary,
-          month,
-          day,
-          date: event.start.date,
-          link: event.location,
-        };
-      }
-    );
-    cache.data = transformedEvents;
-    cache.timestamp = Date.now();
-    return NextResponse.json(transformedEvents);
-  } catch (error) {
-    const status =
-      axios.isAxiosError(error) && error.response?.status
-        ? error.response.status
-        : 500;
-    const message =
-      axios.isAxiosError(error) && error.response?.data?.error?.message
-        ? error.response.data.error.message
-        : 'Failed to fetch events';
-    return NextResponse.json({ error: message }, { status });
-  }
+  return NextResponse.json(results);
 }

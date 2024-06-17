@@ -13,7 +13,9 @@ function Events() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch('/api/calendar', { next: { revalidate: 86400 }});
+        const res = await fetch('/api/calendar', {
+          next: { revalidate: 86400 },
+        });
         const events: CalendarEvent[] = await res.json();
         const { upcomingEvents, previousEvents } = splitEvents(events);
         setUpcomingEvents(upcomingEvents);

@@ -5,6 +5,7 @@ import RacingImage1 from '@logos/fixedgear.png';
 import RacingImage2 from '@logos/landingpage.png';
 import RacingImage3 from '@logos/run.png';
 import RacingImage4 from '@logos/skate.png';
+import Flyer from '@logos/beachchannel.jpeg';
 import ContactForm from '@/components/Contact';
 import Events from '@/components/Events';
 import Mission from '../components/Mission';
@@ -34,14 +35,13 @@ export default function Home() {
         className="w-full h-auto object-cover"
       />
       <Banner text="RUN • RIDE • SKATE • SWIM" />
-
       <div id="events" className="bg-blue px-6 pb-10 lg:px-10 lg:pb-20">
         <Events />
       </div>
-      <Banner text="UNLEASH YOUR POTENTIAL" />
       <div id="mission">
         <Mission />
       </div>
+      <Banner className="bg-sky-300" text="NEW YORK RACING CLUB" />
       <div className="flex justify-center items-center">
         <div className="max-w-4xl">
           <div id="contact" className="px-6 py-4 md:p-10">

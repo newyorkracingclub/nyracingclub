@@ -43,7 +43,7 @@ function Events() {
       ) : (
         <div className="flex flex-col justify-content items-center space-y-8">
           <div className="lg:w-[75vw]">
-            <h2 className="text-2xl md:text-6xl font-semibold p-8 text-white text-center tracking-tighter">
+            <h2 className="text-4xl md:text-6xl font-semibold p-8 text-white text-center tracking-tighter">
               UPCOMING <span className="font-light">EVENTS</span>
             </h2>
             <div className="grid grid-cols-1 gap-4">
@@ -52,6 +52,7 @@ function Events() {
               ))}
             </div>
           </div>
+          {/*
           <div className="lg:w-[75vw]">
             <h2 className="text-lg md:text-2xl font-semibold text-white p-4 tracking-tighter">
               PREVIOUS <span className="font-light">EVENTS</span>
@@ -62,6 +63,7 @@ function Events() {
               ))}
             </div>
           </div>
+            */}
         </div>
       )}
     </div>

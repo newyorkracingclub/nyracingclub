@@ -1,13 +1,10 @@
 function Mission() {
   return (
-    <div className="mx-auto p-10 bg-blue text-center">
-      <div className="text-white">
-        <h1 className="text-2xl md:text-6xl font-semibold tracking-tighter mb-6">
-          NYRC <span className="font-light">MISSION</span>
-        </h1>
-        <p className="text-xl md:text-3xl xl:text-5xl font-medium">
-          &apos;We aim to foster excellence, camaraderie, and growth in cycling,
-          running, speed skating, and swimming.&apos;
+    <div className="mx-auto p-10 bg-red-400 text-center">
+      <div className="text-blue">
+        <p className="text-4xl md:text-6xl xl:text-8xl font-medium tracking-tighter italic">
+          &#8220;Our goal is for everyone to race and grow together for a
+          faster, more inclusive world.&#8220;
         </p>
       </div>
     </div>

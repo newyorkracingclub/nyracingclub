@@ -37,9 +37,7 @@ const Event: React.FC<EventCardProps> = ({ event, isPrevious }) => {
       </div>
     </Link>
   ) : (
-    <div
-      className={`flex items-center justify-between px-4 py-2 bg-gray-200 rounded-lg shadow-md`}
-    >
+    <div className="flex items-center justify-between px-4 py-2 bg-gray-200 rounded-lg shadow-md">
       <div className="flex items-center space-x-4">
         <div className="text-center">
           <div className="text-red-600 md:text-xl font-bold">{event.month}</div>

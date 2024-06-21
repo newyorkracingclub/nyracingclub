@@ -38,7 +38,7 @@ function Events() {
     isPrevious: boolean,
     className: string
   ) => (
-    <div className="lg:w-[75vw]">
+    <div className="w-[85vw] md:w-[80vw] lg:w-[75vw]">
       {(!isPrevious || events.length !== 0) && (
         <h2 className="text-3xl md:text-6xl font-semibold p-8 text-white text-center tracking-tighter">
           {title} <span className="font-light">EVENTS</span>

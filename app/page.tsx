@@ -30,6 +30,7 @@ export default function Home() {
         alt="Cycling Race"
         width={1920}
         height={1080}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="w-full h-auto object-cover"
       />
       <Banner text="RUN • RIDE • SKATE • SWIM" />

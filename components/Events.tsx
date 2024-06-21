@@ -40,7 +40,7 @@ function Events() {
   ) => (
     <div className="lg:w-[75vw]">
       {(!isPrevious || events.length !== 0) && (
-        <h2 className="text-4xl md:text-6xl font-semibold p-8 text-white text-center tracking-tighter">
+        <h2 className="text-3xl md:text-6xl font-semibold p-8 text-white text-center tracking-tighter">
           {title} <span className="font-light">EVENTS</span>
         </h2>
       )}

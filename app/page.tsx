@@ -33,14 +33,18 @@ export default function Home() {
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="w-full h-auto object-cover"
       />
-      <Banner text="RUN • RIDE • SKATE • SWIM" />
+      <Banner text="RUN • RIDE • SKATE • SWIM" duration={40} />
       <div id="events" className="bg-blue px-6 pb-10 lg:px-10 lg:pb-20">
         <Events />
       </div>
       <div id="mission">
         <Mission />
       </div>
-      <Banner className="bg-sky-300" text="NEW YORK RACING CLUB" />
+      <Banner
+        className="bg-sky-300"
+        text="NEW YORK RACING CLUB"
+        duration={30}
+      />
       <div className="flex justify-center items-center">
         <div className="max-w-4xl">
           <div id="contact" className="px-6 py-4 md:p-10">

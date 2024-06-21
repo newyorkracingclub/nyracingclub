@@ -5,7 +5,6 @@ import RacingImage1 from '@logos/fixedgear.png';
 import RacingImage2 from '@logos/landingpage.png';
 import RacingImage3 from '@logos/run.png';
 import RacingImage4 from '@logos/skate.png';
-import Flyer from '@logos/beachchannel.jpeg';
 import ContactForm from '@/components/Contact';
 import Events from '@/components/Events';
 import Mission from '../components/Mission';
@@ -31,7 +30,6 @@ export default function Home() {
         alt="Cycling Race"
         width={1920}
         height={1080}
-        sizes="100vw"
         className="w-full h-auto object-cover"
       />
       <Banner text="RUN • RIDE • SKATE • SWIM" />

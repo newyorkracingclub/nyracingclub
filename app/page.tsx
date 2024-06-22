@@ -1,38 +1,13 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import RacingImage1 from '@logos/fixedgear.webp';
-import RacingImage2 from '@logos/landingpage.webp';
-import RacingImage3 from '@logos/run.webp';
-import RacingImage4 from '@logos/skate.webp';
 import ContactForm from '@/components/Contact';
 import Events from '@/components/Events';
 import Mission from '../components/Mission';
 import Banner from '@/components/Banner';
+import Carousel from '@/components/Carousel';
 
 export default function Home() {
-  const images = [RacingImage1, RacingImage2, RacingImage3, RacingImage4];
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
   return (
     <>
-      <Image
-        priority
-        src={images[currentImageIndex]}
-        alt="Cycling Race"
-        width={1920}
-        height={1080}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="w-full h-auto object-cover"
-      />
+      <Carousel />
       <Banner text="RUN • RIDE • SKATE • SWIM" duration={40} />
       <div id="events" className="bg-blue px-6 pb-10 lg:px-10 lg:pb-20">
         <Events />

@@ -6,8 +6,24 @@ import Footer from '@/components/Footer';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.BASE_URL}`),
   title: 'New York Racing Club',
-  description: 'New York Racing Club',
+  description: 'Come experience exciting running, cycling, skating, and swimming events. Embrace competition and community across New York!',
+  openGraph: {
+    title: 'Join New York Racing Club',
+    description: 'Come experience exciting running, cycling, skating, and swimming events. Embrace competition and community across New York!',
+    url: `${process.env.BASE_URL}`,
+    siteName: 'New York Racing Club',
+    images: [
+      {
+        url: `${process.env.BASE_URL}/landingpage.webp`,
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

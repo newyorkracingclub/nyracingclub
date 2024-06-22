@@ -8,10 +8,12 @@ import Script from 'next/script';
 export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.BASE_URL}`),
   title: 'New York Racing Club',
-  description: 'Come experience exciting running, cycling, skating, and swimming events. Embrace competition and community across New York!',
+  description:
+    'Come experience exciting running, cycling, skating, and swimming events. Embrace competition and community across New York!',
   openGraph: {
     title: 'Join New York Racing Club',
-    description: 'Come experience exciting running, cycling, skating, and swimming events. Embrace competition and community across New York!',
+    description:
+      'Come experience exciting running, cycling, skating, and swimming events. Embrace competition and community across New York!',
     url: `${process.env.BASE_URL}`,
     siteName: 'New York Racing Club',
     images: [

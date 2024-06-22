@@ -7,7 +7,6 @@ function transformEvent(event: GoogleCalendarEvent): CalendarEvent {
   const month = date
     .toLocaleString('default', { month: 'short' })
     .toUpperCase();
-    console.log(date.getDate())
   const day = (date.getDate() + 1).toString();
 
   return {

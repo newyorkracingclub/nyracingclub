@@ -1,36 +1,22 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import Event from './Event';
-import LoadingSpinner from './LoadingSpinner';
 import { CalendarEvent, splitEvents } from '@/lib/events';
 import Image from 'next/image';
 import Athletes from '@logos/athletes.png';
 
-function Events() {
-  const [upcomingEvents, setUpcomingEvents] = useState<CalendarEvent[]>([]);
-  const [previousEvents, setPreviousEvents] = useState<CalendarEvent[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+async function fetchEvents() {
+  const res = await fetch(`${process.env.BASE_URL}/api/calendar`, {
+    next: { revalidate: 86400 }, // Revalidate every 24 hours
+  });
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const res = await fetch('/api/calendar', {
-          next: { revalidate: 86400 },
-        });
-        const events: CalendarEvent[] = await res.json();
-        const { upcomingEvents, previousEvents } = splitEvents(events);
-        setUpcomingEvents(upcomingEvents);
-        setPreviousEvents(previousEvents);
-      } catch (error) {
-        console.error('Error fetching events:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  if (!res.ok) {
+    throw new Error('Failed to fetch events');
+  }
+  const events = await res.json();
+  return splitEvents(events);
+}
 
-    fetchEvents();
-  }, []);
+async function Events() {
+  const { upcomingEvents, previousEvents } = await fetchEvents();
 
   const renderEventsSection = (
     title: string,
@@ -71,22 +57,9 @@ function Events() {
   );
 
   return (
-    <div>
-      {loading ? (
-        <div className="">
-          <h2 className="text-2xl md:text-6xl font-semibold p-8 text-white text-center tracking-tighter">
-            UPCOMING <span className="font-light">EVENTS</span>
-          </h2>
-          <div className="py-20">
-            <LoadingSpinner />
-          </div>
-        </div>
-      ) : (
-        <div className="flex flex-col justify-content items-center space-y-4">
-          {renderEventsSection('UPCOMING', upcomingEvents, false, 'gap-4')}
-          {renderEventsSection('PREVIOUS', previousEvents, true, 'gap-0')}
-        </div>
-      )}
+    <div className="flex flex-col justify-content items-center space-y-4">
+      {renderEventsSection('UPCOMING', upcomingEvents, false, 'gap-4')}
+      {renderEventsSection('PREVIOUS', previousEvents, true, 'gap-0')}
     </div>
   );
 }

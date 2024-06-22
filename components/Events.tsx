@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Athletes from '@logos/athletes.png';
 
 async function fetchEvents() {
-  const res = await fetch(`${process.env.BASE_URL}/api/calendar`, {
+  const res = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/calendar`, {
     next: { revalidate: 86400 }, // Revalidate every 24 hours
   });
 

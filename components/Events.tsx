@@ -4,12 +4,12 @@ import Image from 'next/image';
 import Athletes from '@logos/athletes.png';
 
 async function fetchEvents() {
-  const res = await fetch(
-    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/calendar`,
-    {
-      next: { revalidate: 86400 }, // Revalidate every 24 hours
-    }
-  );
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}`
+    : process.env.NEXT_PUBLIC_BASE_URL;
+  const res = await fetch(`${baseUrl}/api/calendar`, {
+    next: { revalidate: 86400 }, // Revalidate every 24 hours
+  });
 
   if (!res.ok) {
     throw new Error('Failed to fetch events');

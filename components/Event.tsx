@@ -14,7 +14,7 @@ const Event: React.FC<EventCardProps> = ({ event, isPrevious }) => {
       <div className="block border-t border-b border-gray-700 p-2 md:p-4 hover:bg-gray-800 transition duration-300">
         <div className="flex items-center">
           <div className="text-center border-l-2 border-sky-500 px-4 mr-4">
-            <div className="text-xl font-bold text-red-600">{event.month}</div>
+            <div className="text-xl font-bold text-red-500">{event.month}</div>
             <div className="md:text-3xl font-bold font-bold text-white">
               {event.day}
             </div>
@@ -40,7 +40,7 @@ const Event: React.FC<EventCardProps> = ({ event, isPrevious }) => {
     <div className="flex items-center justify-between px-4 py-2 bg-gray-200 rounded-lg shadow-md">
       <div className="flex items-center space-x-4">
         <div className="text-center">
-          <div className="text-red-600 md:text-xl font-bold">{event.month}</div>
+          <div className="text-red-700 md:text-xl font-bold">{event.month}</div>
           <div className="md:text-3xl font-bold">{event.day}</div>
         </div>
         <div>
@@ -49,13 +49,11 @@ const Event: React.FC<EventCardProps> = ({ event, isPrevious }) => {
           </div>
         </div>
       </div>
-      {!isPrevious && (
-        <Link href={event.link ?? ''} target="_blank" rel="nofollow" passHref>
-          <button className="text-xs md:text-base lg:text-base bg-red-600 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:bg-gray-700 transition duration-300">
-            REGISTER
-          </button>
-        </Link>
-      )}
+      <Link href={event.link ?? ''} target="_blank" rel="nofollow" passHref>
+        <button className="text-xs md:text-base lg:text-base bg-red-700 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:bg-gray-700 transition duration-300">
+          REGISTER
+        </button>
+      </Link>
     </div>
   );
 };

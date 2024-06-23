@@ -22,8 +22,8 @@ export default function Carousel() {
       priority
       src={images[currentImageIndex]}
       alt="Cycling Race"
-      width={1920}
-      height={1080}
+      width={960}
+      height={540}
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       className="w-full h-auto object-cover"
     />

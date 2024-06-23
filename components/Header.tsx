@@ -30,7 +30,7 @@ function Header() {
                 ) : (
                   <div
                     key={item.text}
-                    className="cursor-pointer hover:text-gray-300 text-red-600"
+                    className="cursor-pointer hover:text-gray-300 text-red-500"
                   >
                     {item.component}
                   </div>

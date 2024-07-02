@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
+require('dotenv').config({ path: '.envrc' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.BASE_URL}`),
@@ -44,7 +45,6 @@ export default function RootLayout({
           {`window.dataLayer = window.dataLayer || [];
              function gtag(){dataLayer.push(arguments);}
              gtag('js', new Date());
-           
              gtag('config', 'G-QX2WGNWT0P');
              `}
         </Script>

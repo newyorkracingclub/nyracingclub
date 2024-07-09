@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
 import { CalendarEvent, GoogleCalendarEvent } from '@/lib/events';
+require('dotenv').config({ path: '.envrc' });
 
 function transformEvent(event: GoogleCalendarEvent): CalendarEvent {
   const date = new Date(event.start.date);

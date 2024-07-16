@@ -10,7 +10,7 @@ interface EventCardProps {
 
 const Event: React.FC<EventCardProps> = ({ event, isPrevious }) => {
   return isPrevious ? (
-    <Link href={event.link} passHref>
+    <Link href={event.link} target="_blank" rel="nofollow" passHref>
       <div className="block border-t border-b border-gray-700 p-2 md:p-4 hover:bg-gray-800 transition duration-300">
         <div className="flex items-center">
           <div className="text-center border-l-2 border-sky-500 px-4 mr-4">

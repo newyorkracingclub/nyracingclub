@@ -28,7 +28,7 @@ function Header() {
       );
     } else if (item.type === 'component') {
       return (
-        <div className="cursor-pointer hover:text-gray-300 text-red-500">
+        <div className="cursor-pointer hover:text-gray-300 text-red-500 active:text-red-500">
           {item.component}
         </div>
       );

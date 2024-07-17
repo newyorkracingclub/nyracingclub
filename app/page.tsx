@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Carousel />
       <Banner text="RUN • RIDE • SKATE • SWIM" duration={40} />
-      <div id="events" className="bg-blue px-8 pb-10 lg:pb-20 lg:pt-10 lg:p-0">
+      <div id="events" className="bg-blue px-8 pb-10 lg:pb-10 lg:p-0">
         <Events />
       </div>
       <Banner

@@ -10,7 +10,7 @@ interface EventProps {
 
 export default function Event({ event, isPrevious }: EventProps) {
   const eventClasses = isPrevious
-    ? 'block border-t border-b border-gray-700 p-2 md:p-4 bg-defaultbg hover:bg-gray-800 focus:bg-defaultbg transition duration-100'
+    ? 'block border-t border-b border-gray-700 p-2 md:p-4 bg-defaultbg hover:bg-gray-800 focus:bg-defaultbg'
     : 'flex items-center justify-between p-2 pr-2 md:p-4 md:pr-4 bg-gray-200 rounded-lg shadow-md';
 
   return (
@@ -63,7 +63,7 @@ export default function Event({ event, isPrevious }: EventProps) {
             </div>
           </div>
           <Link href={event.link ?? ''} target="_blank" rel="nofollow" passHref>
-            <button className="text-xs md:text-base lg:text-base bg-red-700 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:bg-gray-700 focus:bg-red-700 transition duration-100">
+            <button className="text-xs md:text-base lg:text-base bg-red-700 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:bg-gray-700 focus:bg-red-700">
               REGISTER
             </button>
           </Link>

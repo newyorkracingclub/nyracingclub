@@ -1,6 +1,5 @@
 import ContactForm from '@/components/Contact';
 import Events from '@/components/Events';
-import Mission from '../components/Mission';
 import Banner from '@/components/Banner';
 import Carousel from '@/components/Carousel';
 
@@ -9,23 +8,17 @@ export default function Home() {
     <>
       <Carousel />
       <Banner text="RUN • RIDE • SKATE • SWIM" duration={40} />
-      <div id="events" className="bg-blue px-6 pb-10 lg:px-10 lg:pb-20">
+      <div id="events" className="bg-blue px-8 pb-10 lg:pb-20 lg:pt-10 lg:p-0">
         <Events />
-      </div>
-      <div id="mission">
-        <Mission />
       </div>
       <Banner
         className="bg-sky-300"
         text="NEW YORK RACING CLUB"
         duration={30}
       />
-      <div className="flex justify-center items-center">
-        <div className="max-w-4xl">
-          <div id="contact" className="px-6 py-4 md:p-10">
-            <ContactForm />
-          </div>
-        </div>
+
+      <div id="contact" className="px-6 py-4 md:p-10">
+        <ContactForm />
       </div>
     </>
   );

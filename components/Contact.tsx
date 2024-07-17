@@ -85,7 +85,7 @@ export default function ContactForm() {
             <input
               type="hidden"
               name="_next"
-              value="https://nyracingclub.vercel.app/thankyou"
+              value="https://nyracing.org/thankyou"
             />
             <button
               className="p-3 rounded-md font-light tracking-tighter bg-blue hover:text-gray-500 focus:text-white mt-1 text-white transition duration-500"

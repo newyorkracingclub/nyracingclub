@@ -45,15 +45,15 @@ const Banner: React.FC<BannerProps> = ({ text, className, duration }) => {
   };
 
   return (
-    <div className={`p-3 overflow-hidden h-fit ${className}`}>
+    <div className={`p-2 h-full overflow-hidden ${className}`}>
       <motion.div
         ref={containerRef}
         variants={bannerVariant}
         animate="animate"
-        className="flex whitespace-nowrap items-center text-xl md:text-3xl xl:text-5xl font-medium"
+        className="flex whitespace-nowrap items-center text-xl md:text-3xl xl:text-4xl font-medium"
       >
         {repeatTexts.map((item, index) => (
-          <span key={index} className="lg:px-16 md:px-12 px-8">
+          <span key={index} className="lg:px-12 md:px-8 px-4">
             {item}
           </span>
         ))}

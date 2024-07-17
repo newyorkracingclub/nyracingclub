@@ -5,7 +5,7 @@ import Athletes from '@logos/athletes.png';
 
 async function fetchEvents() {
   const res = await fetch(`${process.env.BASE_URL}/api/calendar`, {
-    next: { revalidate: 86400 }, // Revalidate every 24 hours
+    next: { revalidate: 86400 },
   });
 
   if (!res.ok) {
@@ -24,15 +24,15 @@ async function Events() {
     isPrevious: boolean,
     className: string
   ) => (
-    <div className="w-[85vw] md:w-[80vw] lg:w-[75vw]">
+    <div className="md:w-[75vw] xl:w-[65vw]">
       {(!isPrevious || events.length !== 0) && (
-        <h2 className="text-3xl md:text-6xl font-semibold p-8 text-white text-center tracking-tighter">
+        <h2 className="text-3xl md:text-6xl font-semibold py-8 lg:py-10 text-white text-center tracking-tighter">
           {title} <span className="font-light">EVENTS</span>
         </h2>
       )}
       {events.length === 0 && !isPrevious ? (
-        <div className="flex flex-col justify-between items-center">
-          <div className="flex-grow flex items-center justify-center">
+        <div className="flex flex-col justify-between items-center p-8">
+          <div className="flex grow items-center justify-center">
             <div className="text-sm md:text-lg lg:text-2xl text-white font-light">
               No upcoming events! Stay tuned for updates.
             </div>
@@ -57,7 +57,7 @@ async function Events() {
   );
 
   return (
-    <div className="flex flex-col justify-content items-center space-y-4">
+    <div className="flex flex-col justify-content items-center">
       {renderEventsSection('UPCOMING', upcomingEvents, false, 'gap-4')}
       {renderEventsSection('PREVIOUS', previousEvents, true, 'gap-0')}
     </div>

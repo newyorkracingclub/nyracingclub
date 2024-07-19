@@ -88,7 +88,7 @@ export default function ContactForm() {
               value="https://nyracing.org/thankyou"
             />
             <button
-              className="p-3 rounded-md font-light tracking-tighter bg-blue hover:text-gray-500 focus:text-white mt-1 text-white transition duration-500"
+              className="p-3 rounded-md font-bold tracking-tighter bg-blue hover:bg-sky-300 mt-1 text-white transition duration-200"
               type="submit"
             >
               SUBMIT

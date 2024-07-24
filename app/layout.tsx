@@ -1,33 +1,9 @@
-import type { Metadata } from 'next';
 import './globals.css';
 import Header from '../components/Header';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
 require('dotenv').config({ path: '.envrc' });
-
-export const metadata: Metadata = {
-  metadataBase: new URL(`${process.env.BASE_URL}`),
-  title: 'New York Racing Club',
-  description:
-    'Participate in exciting running, cycling, skating, and swimming events. Embrace competition and community across New York!',
-  openGraph: {
-    title: 'New York Racing Club',
-    description:
-      'Participate in exciting running, cycling, skating, and swimming events. Embrace competition and community across New York!',
-    url: `${process.env.BASE_URL}`,
-    siteName: 'New York Racing Club',
-    images: [
-      {
-        url: `${process.env.BASE_URL}/landingpage.webp`,
-        width: 800,
-        height: 600,
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-};
 
 export default function RootLayout({
   children,
@@ -37,6 +13,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>New York Racing Club</title>
+        <meta property="og:title" content="New York Racing Club" />
+        <meta property="og:site_name" content="New York Racing Club" />
+        <meta
+          property="og:image"
+          content="/images/logos/carousel/landingpage.webp"
+        />
+        <meta
+          property="og:description"
+          content="New York Racing Club hosts monthly races in New York City, inviting competitive sports enthusiasts to participate in running, cycling, skating, and swimming events across all skill levels."
+        />
+        <meta
+          name="description"
+          content="New York Racing Club hosts monthly races in New York City, inviting competitive sports enthusiasts to participate in running, cycling, skating, and swimming events across all skill levels."
+        />
+        <link rel="icon" href="/favicon.ico" />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-QX2WGNWT0P"

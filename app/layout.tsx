@@ -13,32 +13,49 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>New York Racing Club</title>
-        <meta property="og:title" content="New York Racing Club" />
+        <title>New York Racing Club - Competitive Races in NYC</title>
+        <meta
+          name="description"
+          content="Join the New York Racing Club for monthly races in NYC. Participate in running, cycling, skating, and swimming events for all skill levels."
+        />
+        <meta
+          property="og:title"
+          content="New York Racing Club - Competitive Races in NYC"
+        />
         <meta property="og:site_name" content="New York Racing Club" />
+        <meta
+          property="og:description"
+          content="Join the New York Racing Club for exciting monthly races in NYC. Participate in running, cycling, skating, and swimming events for all skill levels."
+        />
         <meta
           property="og:image"
           content="/images/logos/carousel/landingpage.webp"
         />
+        <meta property="og:url" content="https://www.nyracing.org" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta
-          property="og:description"
-          content="New York Racing Club hosts monthly races in New York City, inviting competitive sports enthusiasts to participate in running, cycling, skating, and swimming events across all skill levels."
+          name="twitter:title"
+          content="New York Racing Club - Competitive Races in NYC"
         />
         <meta
-          name="description"
-          content="New York Racing Club hosts monthly races in New York City, inviting competitive sports enthusiasts to participate in running, cycling, skating, and swimming events across all skill levels."
+          name="twitter:description"
+          content="Join the New York Racing Club for exciting monthly races in NYC. Participate in running, cycling, skating, and swimming events for all skill levels."
+        />
+        <meta
+          name="twitter:image"
+          content="/images/logos/carousel/landingpage.webp"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://www.nyracing.org" />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-QX2WGNWT0P"
         ></Script>
         <Script id="gtag">
           {`window.dataLayer = window.dataLayer || [];
-             function gtag(){dataLayer.push(arguments);}
-             gtag('js', new Date());
-             gtag('config', 'G-QX2WGNWT0P');
-             `}
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QX2WGNWT0P');`}
         </Script>
       </head>
       <body className="flex flex-col min-h-screen">

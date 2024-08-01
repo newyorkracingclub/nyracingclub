@@ -5,7 +5,7 @@ import Athletes from '@logos/athletes.png';
 
 async function fetchEvents() {
   const res = await fetch(`${process.env.BASE_URL}/api/calendar`, {
-    next: { revalidate: 60 },
+    next: { revalidate: 86400 },
   });
 
   if (!res.ok) {

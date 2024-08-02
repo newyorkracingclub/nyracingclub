@@ -13,39 +13,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>New York Racing Club - Competitive Races in NYC</title>
+        <title>New York Racing Club</title>
         <meta
           name="description"
           content="Join the New York Racing Club for monthly races in NYC. Participate in running, cycling, skating, and swimming events for all skill levels."
         />
-        <meta
-          property="og:title"
-          content="New York Racing Club - Competitive Races in NYC"
-        />
+        <meta property="og:title" content="New York Racing Club" />
         <meta property="og:site_name" content="New York Racing Club" />
         <meta
           property="og:description"
           content="Join the New York Racing Club for exciting monthly races in NYC. Participate in running, cycling, skating, and swimming events for all skill levels."
         />
-        <meta
-          property="og:image"
-          content="/images/logos/carousel/landingpage.webp"
-        />
+
+        <meta property="og:image" content="/logos/landingpage.webp" />
         <meta property="og:url" content="https://www.nyracing.org" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="New York Racing Club - Competitive Races in NYC"
-        />
-        <meta
-          name="twitter:description"
-          content="Join the New York Racing Club for exciting monthly races in NYC. Participate in running, cycling, skating, and swimming events for all skill levels."
-        />
-        <meta
-          name="twitter:image"
-          content="/images/logos/carousel/landingpage.webp"
-        />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/public/favicon.ico" />
         <link rel="canonical" href="https://www.nyracing.org" />
         <Script
           async

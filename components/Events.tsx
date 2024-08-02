@@ -18,6 +18,8 @@ async function fetchEvents() {
 async function Events() {
   const { upcomingEvents, previousEvents } = await fetchEvents();
 
+  const lastFivePreviousEvents = previousEvents.slice(0, 5);
+
   const renderEventsSection = (
     title: string,
     events: CalendarEvent[],
@@ -59,7 +61,7 @@ async function Events() {
   return (
     <div className="flex flex-col justify-content items-center">
       {renderEventsSection('UPCOMING', upcomingEvents, false, 'gap-4')}
-      {renderEventsSection('PREVIOUS', previousEvents, true, 'gap-0')}
+      {renderEventsSection('PREVIOUS', lastFivePreviousEvents, true, 'gap-0')}
     </div>
   );
 }

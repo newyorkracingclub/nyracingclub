@@ -1,5 +1,5 @@
 export interface CalendarEvent {
-  id: string;
+  id?: string;
   summary: string;
   month: string;
   day: string;
@@ -8,7 +8,7 @@ export interface CalendarEvent {
 }
 
 export interface GoogleCalendarEvent {
-  id: string;
+  id?: string;
   summary: string;
   start: {
     date: string;

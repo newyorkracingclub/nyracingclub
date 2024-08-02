@@ -2,6 +2,7 @@ import Event from './Event';
 import { CalendarEvent, splitEvents } from '@/lib/events';
 import Image from 'next/image';
 import Athletes from '@logos/athletes.png';
+import Link from 'next/link';
 
 async function fetchEvents() {
   const res = await fetch(`${process.env.BASE_URL}/api/calendar`, {
@@ -61,7 +62,16 @@ async function Events() {
   return (
     <div className="flex flex-col justify-content items-center">
       {renderEventsSection('UPCOMING', upcomingEvents, false, 'gap-4')}
-      {renderEventsSection('PREVIOUS', lastFivePreviousEvents, true, 'gap-0')}
+      <div className="relative">
+        {renderEventsSection('PREVIOUS', lastFivePreviousEvents, true, 'gap-0')}
+        <div className="flex justify-center py-10">
+          <Link href="/events" passHref>
+            <button className="text-xs md:text-base lg:text-base font-bold bg-red-700 text-white px-6 py-2 md:px-10 rounded-lg shadow-md hover:bg-gray-700 focus:bg-red-700">
+              VIEW ALL EVENTS
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

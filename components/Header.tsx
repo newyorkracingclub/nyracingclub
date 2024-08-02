@@ -11,8 +11,8 @@ type NavItemType = {
 };
 
 const navItems: NavItemType[] = [
-  { type: 'link', text: 'EVENTS', href: '#events' },
-  { type: 'link', text: 'CONTACT', href: '#contact' },
+  { type: 'link', text: 'HOME', href: '/' },
+  { type: 'link', text: 'EVENTS', href: '/events' },
   { type: 'component', text: 'DONATE', component: <Donate /> },
 ];
 

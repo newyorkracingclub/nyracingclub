@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
+import Donate from './Donate';
 
 type NavItemType = {
-  type: 'link' | 'external';
+  type: 'link' | 'external' | 'component';
   text: string;
   href?: string;
-  external?: string;
+  component?: JSX.Element;
 };
 
 const navItems: NavItemType[] = [
@@ -17,27 +18,8 @@ const navItems: NavItemType[] = [
     text: 'TEAM',
     href: 'https://www.verrazanobikeshop.com/team/',
   },
-  {
-    type: 'external',
-    text: 'DONATE',
-    href: 'https://www.paypal.com/donate?token=BcqKe14lJPY1aeKF5SyTDKb7Ni29VmB0YEF8eABTu7qsqUZ8SpOi1JVlo_Zz_bSbh06kKtIGh-Rf6KAs',
-  },
+  { type: 'component', text: 'DONATE', component: <Donate /> },
 ];
-
-const ExternalLink: React.FC<{ href: string; text: string }> = ({
-  href,
-  text,
-}) => (
-  <Link
-    href={href}
-    passHref
-    className="cursor-pointer hover:text-gray-300 focus:text-gray-300"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {text}
-  </Link>
-);
 
 function Header() {
   const NavItem: React.FC<{ item: NavItemType }> = ({ item }) => {
@@ -45,14 +27,28 @@ function Header() {
       return (
         <Link
           href={item.href ?? ''}
-          passHref
           className="cursor-pointer hover:text-gray-300"
+        >
+          <span>{item.text}</span>
+        </Link>
+      );
+    } else if (item.type === 'external') {
+      return (
+        <Link
+          href={item.href ?? ''}
+          className="cursor-pointer hover:text-gray-300"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {item.text}
         </Link>
       );
-    } else if (item.type === 'external') {
-      return <ExternalLink href={item.href ?? ''} text={item.text} />;
+    } else if (item.type === 'component') {
+      return (
+        <div className="cursor-pointer hover:text-gray-300 focus:text-gray-300">
+          {item.component}
+        </div>
+      );
     }
     return null;
   };

@@ -43,8 +43,12 @@ function Header() {
   const NavItem: React.FC<{ item: NavItemType }> = ({ item }) => {
     if (item.type === 'link') {
       return (
-        <Link href={item.href ?? ''} passHref>
-          <a className="cursor-pointer hover:text-gray-300">{item.text}</a>
+        <Link
+          href={item.href ?? ''}
+          passHref
+          className="cursor-pointer hover:text-gray-300"
+        >
+          {item.text}
         </Link>
       );
     } else if (item.type === 'external') {

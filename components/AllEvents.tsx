@@ -46,11 +46,14 @@ const AllEvents = () => {
 
   const renderYearsNav = () => (
     <nav>
-      <ul className="flex flex-wrap justify-center md:space-x-6">
+      <ul className="flex flex-wrap justify-center space-x-2 md:space-x-6">
         {filteredYears.length > 0 ? (
           filteredYears.map((year) => (
-            <div key={year} className="flex-shrink-0 mx-20 md:mx-0">
-              <Link href={`#${year}`} className="text-blue-500 hover:underline">
+            <div key={year}>
+              <Link
+                href={`#${year}`}
+                className="text-xs md:text-lg text-blue-500 hover:underline"
+              >
                 {year}
               </Link>
             </div>
@@ -89,9 +92,11 @@ const AllEvents = () => {
         ALL <span className="font-light">EVENTS</span>
       </h2>
 
-      <div className="mt-6 md:mt-0 mb-6">{renderYearsNav()}</div>
+      <div className="mt-2 mb-2 md:mb-8 lg:mb-10 md:mt-0">
+        {renderYearsNav()}
+      </div>
 
-      <div className="mb-6 text-white">
+      <div className="mt-2 mb-6 text-white">
         <input
           type="text"
           placeholder="Search"

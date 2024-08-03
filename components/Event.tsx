@@ -18,8 +18,16 @@ export default function Event({ event, isPrevious }: EventProps) {
       className={`event-card ${isPrevious ? 'previous-event' : 'current-event'}`}
     >
       {isPrevious ? (
-        <Link href={event.link} target="_blank" rel="nofollow" passHref>
-          <button className={`${eventClasses} w-full`}>
+        <Link
+          href={event.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          passHref
+        >
+          <button
+            className={`${eventClasses} w-full`}
+            aria-label={`Details of ${event.summary} on ${event.month} ${event.day}`}
+          >
             <div className="flex items-center justify-between">
               <div className="text-center border-l-2 border-sky-500 pl-2 mr-4 lg:mr-8">
                 <div className="text-xl font-bold text-red-500">
@@ -37,7 +45,7 @@ export default function Event({ event, isPrevious }: EventProps) {
               <div className="ml-4">
                 <Image
                   src={GreaterThanSign}
-                  alt="GreaterThan"
+                  alt="Arrow indicating more details"
                   width={48}
                   height={48}
                   className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14"
@@ -62,7 +70,12 @@ export default function Event({ event, isPrevious }: EventProps) {
               </div>
             </div>
           </div>
-          <Link href={event.link ?? ''} target="_blank" rel="nofollow" passHref>
+          <Link
+            href={event.link ?? ''}
+            target="_blank"
+            rel="noopener noreferrer"
+            passHref
+          >
             <button className="text-xs md:text-base lg:text-base bg-red-700 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:bg-gray-700 focus:bg-red-700">
               REGISTER
             </button>

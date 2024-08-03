@@ -3,6 +3,7 @@ import { CalendarEvent, splitEvents } from '@/lib/events';
 import Image from 'next/image';
 import Athletes from '@logos/athletes.png';
 import Link from 'next/link';
+import Head from 'next/head';
 
 async function fetchEvents() {
   const res = await fetch(`${process.env.BASE_URL}/api/calendar`, {
@@ -18,7 +19,6 @@ async function fetchEvents() {
 
 async function Events() {
   const { upcomingEvents, previousEvents } = await fetchEvents();
-
   const lastFivePreviousEvents = previousEvents.slice(0, 5);
 
   const renderEventsSection = (
@@ -43,7 +43,7 @@ async function Events() {
           <div className="pt-8 lg:pt-16">
             <Image
               src={Athletes}
-              alt="Athlete Icons"
+              alt="Icons of athletes representing various sports"
               width={200}
               height={200}
             />
@@ -60,19 +60,43 @@ async function Events() {
   );
 
   return (
-    <div className="flex flex-col justify-content items-center">
-      {renderEventsSection('UPCOMING', upcomingEvents, false, 'gap-4')}
-      <div className="relative">
-        {renderEventsSection('PREVIOUS', lastFivePreviousEvents, true, 'gap-0')}
-        <div className="flex justify-center py-10">
-          <Link href="/events" passHref>
-            <button className="text-xs md:text-base lg:text-base font-bold bg-red-700 text-white px-6 py-2 md:px-10 rounded-lg shadow-md hover:bg-gray-700 focus:bg-red-700">
-              VIEW ALL EVENTS
-            </button>
-          </Link>
+    <>
+      <Head>
+        <title>Upcoming and Previous Events - New York Racing Club</title>
+        <meta
+          name="description"
+          content="Explore upcoming and previous events organized by the New York Racing Club. Find details on our fixed gear crits, cycling races, running events, and more."
+        />
+        <meta
+          property="og:title"
+          content="Upcoming and Previous Events - New York Racing Club"
+        />
+        <meta
+          property="og:description"
+          content="Discover upcoming and past events hosted by the New York Racing Club. Get information on various racing events and stay informed about our activities."
+        />
+        <meta property="og:image" content="/logos/landingpage.webp" />
+        <meta property="og:url" content="https://www.nyracing.org" />
+      </Head>
+      <div className="flex flex-col justify-content items-center">
+        {renderEventsSection('UPCOMING', upcomingEvents, false, 'gap-4')}
+        <div className="relative">
+          {renderEventsSection(
+            'PREVIOUS',
+            lastFivePreviousEvents,
+            true,
+            'gap-0'
+          )}
+          <div className="flex justify-center py-10">
+            <Link href="/events" passHref>
+              <button className="text-xs md:text-base lg:text-base font-bold bg-red-700 text-white px-6 py-2 md:px-10 rounded-lg shadow-md hover:bg-gray-700 focus:bg-red-700">
+                VIEW ALL EVENTS
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

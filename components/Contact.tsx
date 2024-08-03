@@ -23,9 +23,12 @@ export default function ContactForm() {
 
   return (
     <div className="flex justify-center">
-      <section>
+      <section aria-labelledby="contact-heading">
         <div>
-          <p className="font-semibold tracking-tighter text-xl md:text-4xl">
+          <p
+            id="contact-heading"
+            className="font-semibold tracking-tighter text-xl md:text-4xl"
+          >
             CONTACT <span className="font-light">US</span>
           </p>
         </div>
@@ -35,53 +38,81 @@ export default function ContactForm() {
             onSubmit={onSubmit}
             action="https://formsubmit.co/ffbcc01b93ce95dc2fea26f095ce96d0"
             method="POST"
+            aria-describedby="contact-form-info"
           >
+            <p id="contact-form-info" className="sr-only">
+              Please fill out the form below to get in touch with us.
+            </p>
+
+            <label htmlFor="name" className="sr-only">
+              Name
+            </label>
             <input
+              id="name"
               className="w-full rounded-md bg-blue font-light tracking-tighter placeholder-gray-500 text-white p-3"
               type="text"
               placeholder="NAME"
+              aria-required="true"
               {...register('name', {
-                required: true,
-                maxLength: 100,
+                required: 'This field is required.',
+                maxLength: {
+                  value: 100,
+                  message: 'Name cannot exceed 100 characters.',
+                },
               })}
             />
             {errors.name && (
               <p className="text-blue font-semibold mt-3 w-full">
-                {errors.name.type === 'required' && 'This field is required.'}
+                {errors.name.message}
               </p>
             )}
 
+            <label htmlFor="email" className="sr-only">
+              Email
+            </label>
             <input
+              id="email"
               className="w-full rounded-md bg-blue font-light tracking-tighter placeholder-gray-500 text-white p-3 mt-3"
-              type="text"
+              type="email"
               placeholder="EMAIL"
+              aria-required="true"
               {...register('email', {
-                required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                required: 'This field is required.',
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: 'Invalid email address.',
+                },
               })}
             />
             {errors.email && (
               <p className="text-blue font-semibold mt-3 w-full">
-                {errors.email.type === 'required' && 'This field is required.'}
-                {errors.email.type === 'pattern' && 'Invalid email address.'}
+                {errors.email.message}
               </p>
             )}
+
+            <label htmlFor="message" className="sr-only">
+              Message
+            </label>
             <textarea
+              id="message"
               className="w-full rounded-md bg-blue font-light tracking-tighter placeholder-gray-500 text-white p-3 mt-3"
               placeholder="MESSAGE"
               rows={7}
-              cols={50}
+              aria-required="true"
               {...register('message', {
-                required: true,
-                maxLength: 2000,
+                required: 'This field is required.',
+                maxLength: {
+                  value: 2000,
+                  message: 'Message cannot exceed 2000 characters.',
+                },
               })}
             />
             {errors.message && (
               <p className="text-blue font-semibold w-full mt-1 mb-2">
-                {errors.message.type === 'required' &&
-                  'This field is required.'}
+                {errors.message.message}
               </p>
             )}
+
             <input
               type="hidden"
               name="_next"

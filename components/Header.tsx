@@ -18,7 +18,7 @@ const navItems: NavItemType[] = [
     text: 'TEAM',
     href: 'https://www.verrazanobikeshop.com/team/',
   },
-  { type: 'component', text: 'DONATE', component: <Donate /> },
+  { type: 'component', text: 'Donate', component: <Donate /> },
 ];
 
 function Header() {
@@ -28,8 +28,9 @@ function Header() {
         <Link
           href={item.href ?? ''}
           className="cursor-pointer hover:text-gray-300"
+          aria-label={item.text}
         >
-          <span>{item.text}</span>
+          {item.text}
         </Link>
       );
     } else if (item.type === 'external') {
@@ -39,6 +40,7 @@ function Header() {
           className="cursor-pointer hover:text-gray-300"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`External link to ${item.text}`}
         >
           {item.text}
         </Link>
@@ -56,7 +58,10 @@ function Header() {
   return (
     <header className="sticky bg-blue">
       <div className="relative">
-        <nav className="flex flex-col sm:flex-row items-center pb-5 md:pb-0 md:pr-10">
+        <nav
+          className="flex flex-col sm:flex-row items-center pb-5 md:pb-0 md:pr-10"
+          aria-label="Main navigation"
+        >
           <div className="flex items-center space-x-4 md:space-x-0 hover:cursor-pointer">
             <Logo />
           </div>

@@ -13,19 +13,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>New York Racing Club</title>
+        <title>
+          New York Racing Club - Cycling, Running, Speed Skating & Swimming
+        </title>
         <meta
           name="description"
-          content="Join New York Racing Club for thrilling racing events in NYC, including fixed gear crits, road races, running races, speed skating, and swimming. Perfect for all skill levels."
+          content="Join the New York Racing Club for exciting events in NYC. Participate in fixed gear crits, road races, running competitions, swimming events, and speed skating. Perfect for all skill levels."
         />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
 
-        <meta property="og:title" content="New York Racing Club" />
-        <meta property="og:site_name" content="New York Racing Club" />
+        <meta
+          property="og:title"
+          content="New York Racing Club - Cycling, Running, Speed Skating & Swimming"
+        />
         <meta
           property="og:description"
-          content="Join New York Racing Club for thrilling races in NYC. Participate in fixed gear crits, road races, running, cycling, speed skating, and swimming events. Suitable for all skill levels."
+          content="Join the New York Racing Club for exciting events in NYC, including fixed gear crits, road races, running, swimming, and speed skating competitions."
         />
         <meta property="og:image" content="/logos/landingpage.webp" />
         <meta property="og:url" content="https://www.nyracing.org" />
@@ -39,7 +43,6 @@ export default function RootLayout({
               name: 'New York Racing Club',
               url: 'https://www.nyracing.org',
               logo: '/logos/landingpage.webp',
-              sameAs: ['http://www.nyracing.org', 'nyracing.org'],
             }),
           }}
         ></script>

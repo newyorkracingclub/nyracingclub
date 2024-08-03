@@ -8,44 +8,19 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Events Section -->
+  <!-- Events Page -->
   <url>
-    <loc>https://www.nyracing.org/#events</loc>
+    <loc>https://www.nyracing.org/events</loc>
     <lastmod>2024-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Contact Section -->
-  <url>
-    <loc>https://www.nyracing.org/#contact</loc>
-    <lastmod>2024-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <!-- Thank You Page for Contact Form -->
   <url>
     <loc>https://www.nyracing.org/thankyou</loc>
-    <lastmod>2024-08-01</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- 404 Page -->
-  <url>
-    <loc>https://www.nyracing.org/404</loc>
-    <lastmod>2024-08-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-
-  <!-- External Donation Page -->
-  <url>
-    <loc>https://www.paypal.com/donate?token=tSOyIQ81lzVzlyyEtXaqoN3YebF5gSmFaK7eAQ0R_RIvX7DfOVbKABHH2de3f-lCHnV7entAFBxOlbia</loc>
-    <lastmod>2024-08-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
 </urlset>

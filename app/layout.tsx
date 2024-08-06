@@ -13,23 +13,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>
-          New York Racing Club - Cycling, Running, Speed Skating & Swimming
-        </title>
+        <title>New York Racing Club</title>
         <meta
           name="description"
-          content="Join the New York Racing Club for exciting events in NYC. Participate in fixed gear crits, road races, running competitions, swimming events, and speed skating. Perfect for all skill levels."
+          content="Join New York Racing Club for exciting events in NYC. Compete in cycling, running, swimming, and speed skating."
         />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
 
-        <meta
-          property="og:title"
-          content="New York Racing Club - Cycling, Running, Speed Skating & Swimming"
-        />
+        <meta property="og:title" content="New York Racing Club" />
         <meta
           property="og:description"
-          content="Join the New York Racing Club for exciting events in NYC, including fixed gear crits, road races, running, swimming, and speed skating competitions."
+          content="Join New York Racing Club for exciting events in NYC. Compete in cycling, running, swimming, and speed skating."
         />
         <meta property="og:image" content="/logos/landingpage.webp" />
         <meta property="og:url" content="https://www.nyracing.org" />

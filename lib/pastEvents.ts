@@ -80,14 +80,14 @@ const pastEvents: CalendarEvent[] = [
   {
     month: 'Sep',
     day: '22',
-    summary: "Diamond Mountain Classic Road Race",
+    summary: 'Diamond Mountain Classic Road Race',
     link: 'https://www.bikereg.com/diamondmountain',
     date: '2024-09-22',
   },
   {
     month: 'Sep',
     day: '22',
-    summary: "Diamond Mountain Time Trial",
+    summary: 'Diamond Mountain Time Trial',
     link: 'https://www.bikereg.com/dmtt',
     date: '2024-09-22',
   },
@@ -101,7 +101,7 @@ const pastEvents: CalendarEvent[] = [
   {
     month: 'Oct',
     day: '13',
-    summary: "Atlantic Time Trial and Duathlon",
+    summary: 'Atlantic Time Trial and Duathlon',
     link: 'https://www.bikereg.com/atlantictt',
     date: '2024-10-13',
   },

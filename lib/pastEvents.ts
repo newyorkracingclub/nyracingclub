@@ -108,7 +108,7 @@ const pastEvents: CalendarEvent[] = [
   {
     month: 'Oct',
     day: '26',
-    summary: "Breezy Time Trial & Inline Speed Skate 10K",
+    summary: 'Breezy Time Trial & Inline Speed Skate 10K',
     link: 'https://www.bikereg.com/breezy',
     date: '2024-10-26',
   },

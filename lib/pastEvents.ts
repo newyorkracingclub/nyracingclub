@@ -51,13 +51,6 @@ const pastEvents: CalendarEvent[] = [
   },
   {
     month: 'Jun',
-    day: '23',
-    summary: "Randall's Island Criterium (Road, Fixed, Skates)",
-    link: 'https://www.bikereg.com/65638',
-    date: '2024-06-23',
-  },
-  {
-    month: 'Jun',
     day: '29',
     summary: 'Free Chariot Tournament',
     link: 'https://www.bikereg.com/66169',
@@ -85,11 +78,18 @@ const pastEvents: CalendarEvent[] = [
     date: '2024-08-18',
   },
   {
-    month: 'Aug',
-    day: '25',
-    summary: 'Riverside Criterium',
-    link: 'https://www.bikereg.com/65268',
-    date: '2024-08-25',
+    month: 'Sep',
+    day: '22',
+    summary: "Diamond Mountain Classic Road Race",
+    link: 'https://www.bikereg.com/diamondmountain',
+    date: '2024-09-22',
+  },
+  {
+    month: 'Sep',
+    day: '22',
+    summary: "Diamond Mountain Time Trial",
+    link: 'https://www.bikereg.com/dmtt',
+    date: '2024-09-22',
   },
   {
     month: 'Sep',
@@ -97,6 +97,20 @@ const pastEvents: CalendarEvent[] = [
     summary: "Randall's Island Criterium (Road, Fixed, Skates)",
     link: 'https://www.bikereg.com/randalls',
     date: '2024-09-29',
+  },
+  {
+    month: 'Oct',
+    day: '13',
+    summary: "Atlantic Time Trial and Duathlon",
+    link: 'https://www.bikereg.com/atlantictt',
+    date: '2024-10-13',
+  },
+  {
+    month: 'Oct',
+    day: '27',
+    summary: "The Devil's Scratch",
+    link: 'https://www.bikereg.com/thedevilsscratch',
+    date: '2024-10-27',
   },
 
   // Events for 2023

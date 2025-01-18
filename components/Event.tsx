@@ -70,16 +70,25 @@ export default function Event({ event, isPrevious }: EventProps) {
               </div>
             </div>
           </div>
-          <Link
-            href={event.link ?? ''}
-            target="_blank"
-            rel="noopener noreferrer"
-            passHref
-          >
-            <button className="text-xs md:text-base lg:text-base bg-red-700 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:bg-gray-700 focus:bg-red-700">
-              REGISTER
+          {event.link ? (
+            <Link
+              href={event.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              passHref
+            >
+              <button className="text-xs md:text-base lg:text-base bg-red-700 text-white px-2 py-2 md:px-4 rounded-lg shadow-md hover:bg-gray-700 focus:bg-red-700">
+                REGISTER
+              </button>
+            </Link>
+          ) : (
+            <button
+              className="text-xs md:text-base lg:text-base bg-gray-700 text-white px-2 py-2 md:px-4 rounded-lg shadow-md cursor-not-allowed"
+              disabled
+            >
+              OPENING SOON
             </button>
-          </Link>
+          )}
         </div>
       )}
     </div>

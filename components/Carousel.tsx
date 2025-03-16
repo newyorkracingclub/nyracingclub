@@ -1,26 +1,36 @@
 'use client';
-import RacingImage1 from '@logos/carousel/fixedgear.webp';
-import RacingImage2 from '@logos/carousel/landingpage.webp';
-import RacingImage3 from '@logos/carousel/run.webp';
-import RacingImage4 from '@logos/carousel/skate.webp';
-import RacingImage5 from '@logos/carousel/eastnycrit2_womenroad.jpg';
+import RacingImage1 from '@carousel/ride1.jpg';
+import RacingImage2 from '@carousel/ride2.jpg';
+import RacingImage3 from '@carousel/ride3.webp';
+import RacingImage4 from '@carousel/ride4.webp';
+import RacingImage5 from '@carousel/ride5.jpg';
+import RacingImage6 from '@carousel/ride6.jpg';
+import RacingImage7 from '@carousel/run.webp';
+import RacingImage8 from '@carousel/run1.jpg';
+import RacingImage9 from '@carousel/run2.jpg';
+import RacingImage10 from '@carousel/skate.webp';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Carousel() {
   const images = [
     RacingImage1,
-    RacingImage2,
+    RacingImage10,
     RacingImage3,
-    RacingImage4,
+    RacingImage8,
     RacingImage5,
+    RacingImage7,
+    RacingImage4,
+    RacingImage6,
+    RacingImage9,
+    RacingImage2,
   ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [images.length]);

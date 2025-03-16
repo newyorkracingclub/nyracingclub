@@ -14,10 +14,10 @@ import Image from 'next/image';
 
 export default function Carousel() {
   const images = [
-    RacingImage1,
-    RacingImage10,
     RacingImage3,
     RacingImage8,
+    RacingImage1,
+    RacingImage10,
     RacingImage5,
     RacingImage7,
     RacingImage4,

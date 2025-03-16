@@ -20,7 +20,7 @@ export default function Home() {
         />
       </Head>
       <Carousel />
-      <Banner text="RUN • RIDE • SKATE • SWIM" duration={40} />
+      <Banner text="SWIM • BIKE • RUN • SKATE" duration={40} />
       <div id="events" className="bg-blue px-8 pb-10 lg:pb-10 lg:p-0">
         <Events />
       </div>

@@ -1,23 +1,22 @@
 'use client';
+
 import React, { useState } from 'react';
 import Event from './Event';
-import pastEvents from '@/lib/pastEvents';
 import Link from 'next/link';
-
-interface CalendarEvent {
-  month: string;
-  day: string;
-  summary: string;
-  link: string;
-  date: string;
-}
+import { CalendarEvent } from '@/lib/events';
 
 interface GroupedEvents {
   [year: string]: CalendarEvent[];
 }
 
-const AllEvents = () => {
-  const groupedEvents: GroupedEvents = pastEvents.reduce(
+interface EventsClientProps {
+  events: CalendarEvent[];
+}
+
+export default function EventsClient({ events }: EventsClientProps) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const groupedEvents: GroupedEvents = events.reduce(
     (acc: GroupedEvents, event: CalendarEvent) => {
       const year = new Date(event.date).getFullYear().toString();
       if (!acc[year]) {
@@ -32,8 +31,6 @@ const AllEvents = () => {
   const sortedYears: string[] = Object.keys(groupedEvents).sort(
     (a, b) => parseInt(b) - parseInt(a)
   );
-
-  const [searchTerm, setSearchTerm] = useState('');
 
   const filterEvents = (year: string) =>
     groupedEvents[year].filter((event) =>
@@ -73,7 +70,7 @@ const AllEvents = () => {
             <h3 className="text-3xl font-semibold mt-6 mb-4">{year}</h3>
             {filterEvents(year).length > 0 ? (
               filterEvents(year).map((event) => (
-                <Event key={event.date} event={event} isPrevious={true} />
+                <Event key={event.id} event={event} isPrevious={true} />
               ))
             ) : (
               <div className="text-gray-500">No events found for this year</div>
@@ -91,11 +88,9 @@ const AllEvents = () => {
       <h2 className="text-3xl md:text-6xl font-semibold pt-8 md:py-8 lg:py-10 text-center tracking-tighter">
         ALL <span className="font-light">EVENTS</span>
       </h2>
-
       <div className="mt-2 mb-2 md:mb-8 lg:mb-10 md:mt-0">
         {renderYearsNav()}
       </div>
-
       <div className="mt-2 mb-6 text-white">
         <input
           type="text"
@@ -105,10 +100,7 @@ const AllEvents = () => {
           className="p-2 border border-gray-300 rounded"
         />
       </div>
-
       {renderEvents()}
     </div>
   );
-};
-
-export default AllEvents;
+}

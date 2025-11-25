@@ -4,27 +4,26 @@ import { CalendarEvent, GoogleCalendarEvent } from '@/lib/events';
 require('dotenv').config({ path: '.envrc' });
 
 function transformEvent(event: GoogleCalendarEvent): CalendarEvent {
-  const date = new Date(event.start.date);
-  const month = date
+  const [year, month, day] = event.start.date.split('-').map(Number);
+
+  const date = new Date(year, month - 1, day);
+
+  const monthStr = date
     .toLocaleString('default', { month: 'short' })
     .toUpperCase();
-  const day = date.getDate().toString();
 
   return {
     id: event.id,
     summary: event.summary,
-    month,
-    day,
+    month: monthStr,
+    day: day.toString(),
     date: event.start.date,
     link: event.location,
   };
 }
 
-function getStartOfYearDate(): string {
-  const date = new Date();
-  date.setMonth(0);
-  date.setDate(1);
-  date.setHours(0, 0, 0, 0);
+function getStartOf2018(): string {
+  const date = new Date('2018-01-01T00:00:00.000Z');
   return date.toISOString();
 }
 
@@ -36,9 +35,19 @@ export async function GET() {
     throw new Error('API key or calendar ID is not set');
   }
 
+  const timeMin = getStartOf2018();
+
+  const params = new URLSearchParams({
+    key: apiKey,
+    orderBy: 'startTime',
+    singleEvents: 'true',
+    timeMin: timeMin,
+    maxResults: '2500', // Add this to get more results
+  });
+
   const results = await axios
     .get<{ items: GoogleCalendarEvent[] }>(
-      `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&orderBy=startTime&singleEvents=true&timeMin=${getStartOfYearDate()}`
+      `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?${params.toString()}`
     )
     .then((response) => response.data.items.map(transformEvent))
     .catch((error) => {

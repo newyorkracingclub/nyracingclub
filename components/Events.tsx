@@ -1,24 +1,12 @@
 import Event from './Event';
-import { CalendarEvent, splitEvents } from '@/lib/events';
+import { CalendarEvent, fetchEvents, splitEvents } from '@/lib/events';
 import Image from 'next/image';
 import Athletes from '@logos/athletes.png';
 import Link from 'next/link';
 import Head from 'next/head';
 
-async function fetchEvents() {
-  const res = await fetch(`${process.env.BASE_URL}/api/calendar`, {
-    next: { revalidate: 86400 },
-  });
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch events');
-  }
-  const events = await res.json();
-  return splitEvents(events);
-}
-
 async function Events() {
-  const { upcomingEvents, previousEvents } = await fetchEvents();
+  const { upcomingEvents, previousEvents } = splitEvents(await fetchEvents());
   const lastFivePreviousEvents = previousEvents.slice(0, 5);
 
   const renderEventsSection = (

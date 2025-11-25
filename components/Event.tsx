@@ -19,7 +19,7 @@ export default function Event({ event, isPrevious }: EventProps) {
     >
       {isPrevious ? (
         <Link
-          href={event.link}
+          href={event.link ?? '#'}
           target="_blank"
           rel="noopener noreferrer"
           passHref
